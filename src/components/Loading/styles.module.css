@@ -1,0 +1,27 @@
+.loader {
+    margin: auto;
+    width: 75px;
+    height: 75px;
+    border: 10px solid rgba(13, 71, 161, 0.6);
+    border-radius: 50%;
+    border-left-color: #a10d95;
+    animation: loader 1.3s linear infinite;
+}
+
+@keyframes loader {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.mask {
+    width: 700px; 
+    padding: 282.5px 0;
+    background: linear-gradient(60deg, #F0B5CE 20%, #8C6BAE 100%);
+    transition: 0.6s;
+    margin: 15px auto;    
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

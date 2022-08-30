@@ -1,0 +1,48 @@
+.temperature {
+    display: flex;
+    align-items: flex-start;
+}
+
+.number {
+    font-weight: normal;
+    font-size: 100px;
+    line-height: 120%;
+    text-shadow: -5px 3px 2px rgba(0, 0, 0, 0.15);
+}
+
+.meterage {
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 120%;
+    letter-spacing: -0.05em;
+    padding-top: 20px;
+    margin-left: 10px;
+    text-shadow: -2px 2px 1px rgba(77, 75, 75, 0.15);
+}
+
+.date {
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 120%;
+    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.15);
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    text-transform: capitalize;
+}
+
+.time {
+    display: flex;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 120%;
+    text-shadow: -1.51px 2.26px 0.75px rgba(0, 0, 0, 0.1);
+    align-items: center;
+}
+
+.dash {
+    width: 1.8px;
+    height: 25px;
+    margin: 0 10px;
+    background-color: white;
+}

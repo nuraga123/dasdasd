@@ -1,0 +1,24 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.location {
+    display: flex;
+}
+
+.img {
+    background: #7b79e842;
+    border-radius: 10px;
+}
+.text {
+    margin-left: 30px;
+    font-family: 'Inter';
+    font-style : normal;
+    font-size  : 32px;
+    line-height: 120%;
+    color: #FFFFFF;
+    text-shadow: -1.51px 2.26px 0.75px rgba(0, 0, 0, 0.1);
+}
+

@@ -1,0 +1,10 @@
+.back {
+    margin: 15px auto;
+    background: linear-gradient(60deg, #F0B5CE 20%, #8C6BAE 100%);
+    border-radius: 20px;
+    width: 700px;
+}
+
+.contayner {
+    padding: 30px;
+}

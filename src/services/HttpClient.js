@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export default class HttpClient {   
+export default class HttpClient {
     constructor(baseURL, appid) {
         this.client = axios.create({ baseURL });
 
@@ -13,7 +13,7 @@ export default class HttpClient {
         );
     }
 
-    request({ method, params }) {
-        return this.client({ method, params });
+    request({ url, method, params }) {
+        return this.client({ url, method, params });
     }
 }

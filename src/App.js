@@ -1,54 +1,51 @@
-import { useState, useEffect } from 'react';
+import { observer } from 'mobx-react';
 
 import './App.css';
 
 import Weather from './components/Weather';
 
 import useGeolocation from './hooks/useGeolocation';
+import useWeather from './hooks/useWeather';
+import useForecast from './hooks/useForecast';
 
-import { fetchCurrentWeather } from './services/api';
+import { languageStore } from './store';
+
 
 function App() {
   const geolocation = useGeolocation();
-  
-  const [weather, setWeather] = useState({ loading: false, error: null });
-  const setWeatherLoading = (loading) => {
-    setWeather((prevWeather) => ({ ...prevWeather, loading }));
-  }
-  const setWeatherError = (error) => {
-    setWeather((prevWeather) => ({ ...prevWeather, error }));
-  }
-  const setWeatherData = (data) => {
-    setWeather((prevWeather) => ({ ...prevWeather, ...data }));
-  }
 
-  useEffect(() => {
-    if (geolocation.latitude && geolocation.longtitute) {
-      setWeatherLoading(true);
-      fetchCurrentWeather({ lat: geolocation.latitude, lon: geolocation.longtitute })
-        .then(({ data }) => setWeatherData(data))
-        .catch((error) => setWeatherError(error))
-        .finally(() => setWeatherLoading(false));
-    }
-  }, [geolocation]);
+  const weather = useWeather(
+    geolocation,
+    languageStore.value
+  );
+
+  const forecast = useForecast(
+    geolocation
+  );
+  
+    console.log(forecast)
 
   return (
     <div className='App'>
-      {
-        geolocation.waiting ? (
-          <p>geolocation is waiting</p>
-        ) : geolocation.error ? (
-          <p>Error with getting geolocation</p>
-        ) : weather.loading ? (
-          <p>weather is loading</p>
-        ) : weather.error ? (
-          <p>Error with fetching weather</p>
-        ) : (
-          <Weather temp={weather.main.temp} />
-        )
-      }
+      <div>
+        <Weather
+          //weather={weather}
+          // forecast={forecast}
+          country={weather.sys?.country}
+          location={weather.name}
+          temp={weather.main?.temp}
+          iconId={weather.weather?.[0]?.icon}
+          loading={geolocation.waiting || weather.loading || forecast.loading}
+          error={geolocation.error || weather.error || forecast.error}
+          speed={weather.wind?.speed}
+          humidity={weather.main?.humidity}
+          information={weather.weather?.[0]?.description}
+          //tempForecast={forecastTemp}
+          //dateForecast={forecastDate}
+        />
+      </div>
     </div>
   );
 }
 
-export default App;
+export default observer(App);

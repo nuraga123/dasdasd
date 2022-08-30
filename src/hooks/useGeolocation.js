@@ -17,10 +17,10 @@ const useGeolocation = () => {
             });
         }
 
-        const errorCallback = (error) => {
+        const errorCallback = () => {
             setCoordinates({
                 waiting: false,
-                error,
+                error: 'Включите геолокацию',
             });
         };
 

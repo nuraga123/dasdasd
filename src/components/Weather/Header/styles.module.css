@@ -1,0 +1,9 @@
+.header {
+    margin-top: 30px;
+    display: flex;
+    justify-content: end;
+}
+
+.icon {
+    width: 75px;
+}
